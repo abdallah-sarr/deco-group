@@ -21,6 +21,8 @@
   --mobile-menu-bg: white;
   --input-bg: white;
   --input-border: rgba(44, 44, 44, 0.2);
+  --footer-bg: #2C2C2C;
+  --dark-card-bg: #2C2C2C;
 }
 
 [data-theme="dark"] {
@@ -37,6 +39,8 @@
   --mobile-menu-bg: #2d2d2d;
   --input-bg: #2d2d2d;
   --input-border: rgba(255, 255, 255, 0.2);
+  --footer-bg: #0f0f0f;
+  --dark-card-bg: #1f1f1f;
 }
 
 * {
@@ -62,9 +66,9 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.03em;
 }
 
 img {
@@ -125,7 +129,7 @@ button {
 
 .section-title {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--heading-color);
   margin-bottom: 1.5rem;
 }
@@ -294,13 +298,26 @@ button {
 .nav-desktop {
   display: none;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 @media (min-width: 1024px) {
   .nav-desktop {
     display: flex;
   }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header.scrolled .nav-actions {
+  border-left-color: var(--border-color);
 }
 
 .nav-link {
@@ -335,38 +352,42 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
     color: white;
     cursor: pointer;
     transition: var(--transition);
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .theme-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.2);
     border-color: white;
+    transform: scale(1.05);
 }
 
 .header.scrolled .theme-toggle-btn {
     color: var(--deco-charcoal);
     border-color: var(--border-color);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 .header.scrolled .theme-toggle-btn:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.1);
     border-color: var(--deco-charcoal);
 }
 
 [data-theme="dark"] .header.scrolled .theme-toggle-btn {
     color: var(--text-color);
     border-color: var(--border-color);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 [data-theme="dark"] .header.scrolled .theme-toggle-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15);
     border-color: white;
 }
 
@@ -500,10 +521,10 @@ button {
 
 .hero-title {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 500;
   color: white;
   margin-bottom: 1.5rem;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 @media (min-width: 640px) {
@@ -669,7 +690,7 @@ button {
 
 .stat-number {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--deco-charcoal);
   margin-bottom: 0.5rem;
 }
@@ -724,7 +745,7 @@ button {
 
 .about-name {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
@@ -752,8 +773,8 @@ button {
 .timeline-year {
   flex-shrink: 0;
   width: 4rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
+  font-family: 'Space Grotesk', 'Poppins', sans-serif;
+  font-weight: 500;
   font-size: 1.125rem;
   color: var(--deco-gold);
 }
@@ -841,7 +862,7 @@ button {
   border-radius: 9999px;
   font-weight: 500;
   transition: var(--transition);
-  background: white;
+  background: var(--card-bg);
   color: var(--deco-charcoal);
 }
 
@@ -874,7 +895,7 @@ button {
 }
 
 .product-card {
-  background: white;
+  background: var(--card-bg);
   border-radius: 1rem;
   overflow: hidden;
   transition: var(--transition);
@@ -1080,7 +1101,7 @@ button {
 }
 
 .b2b-card {
-    background: var(--deco-charcoal);
+    background: var(--dark-card-bg);
     color: white;
     padding: 3rem;
     border-radius: 1rem;
@@ -1128,7 +1149,7 @@ button {
 }
 
 .partner-item {
-    background: white;
+    background: var(--card-bg);
     padding: 1.5rem 2rem;
     border-radius: 0.5rem;
     font-weight: 600;
@@ -1208,7 +1229,7 @@ button {
 
 .testimonial-slide {
   display: none;
-  background: white;
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -1294,7 +1315,7 @@ button {
 .testimonial-nav-btn {
   padding: 0.5rem;
   border-radius: 9999px;
-  background: white;
+  background: var(--card-bg);
   color: var(--deco-charcoal);
   transition: var(--transition);
 }
@@ -1348,7 +1369,7 @@ button {
 }
 
 .blog-card {
-  background: var(--deco-cream);
+  background: var(--card-bg);
   border-radius: 1rem;
   overflow: hidden;
   transition: var(--transition);
@@ -1441,7 +1462,7 @@ button {
    FOOTER
    ============================================ */
 .footer {
-  background: var(--deco-charcoal);
+  background: var(--footer-bg);
   color: white;
   margin-top: 5rem;
   padding: 3rem 0;

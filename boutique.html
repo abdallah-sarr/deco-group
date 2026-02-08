@@ -8,7 +8,7 @@
     <link rel="icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -23,32 +23,32 @@
                     <span class="logo-text">DECO GROUP</span>
                 </a>
                 <div class="nav-desktop">
-                    <a href="a-propos.html" class="nav-link">À propos</a>
-                    <a href="processus.html" class="nav-link">Savoir-faire</a>
                     <a href="boutique.html" class="nav-link">Boutique</a>
                     <a href="b2b.html" class="nav-link">B2B</a>
-                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="a-propos.html" class="nav-link">À propos</a>
                     <a href="contact.html" class="nav-link">Contact</a>
                     
-                    <!-- Theme Toggle Button -->
-                    <button id="themeToggle" class="theme-toggle-btn" aria-label="Changer de thème">
-                        <svg class="theme-icon-sun" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <svg class="theme-icon-moon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
+                    <div class="nav-actions">
+                        <!-- Theme Toggle Button -->
+                        <button id="themeToggle" class="theme-toggle-btn" aria-label="Changer de thème">
+                            <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
 
-                    <a href="contact.html?type=collecte" class="btn btn-primary btn-sm">Demander une collecte</a>
+                        <a href="contact.html?type=collecte" class="btn btn-primary btn-sm">Collecte</a>
+                    </div>
                 </div>
                 <button class="mobile-menu-btn" aria-label="Menu">
                     <svg class="menu-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -72,11 +72,9 @@
                 </div>
                 <nav class="mobile-nav">
                     <a href="index.html" class="mobile-nav-link">Accueil</a>
-                    <a href="a-propos.html" class="mobile-nav-link">À propos</a>
-                    <a href="processus.html" class="mobile-nav-link">Savoir-faire</a>
                     <a href="boutique.html" class="mobile-nav-link">Boutique</a>
                     <a href="b2b.html" class="mobile-nav-link">B2B</a>
-                    <a href="blog.html" class="mobile-nav-link">Blog</a>
+                    <a href="a-propos.html" class="mobile-nav-link">À propos</a>
                     <a href="contact.html" class="mobile-nav-link">Contact</a>
                 </nav>
                 <div class="mobile-menu-footer">
@@ -116,14 +114,26 @@
                     <h3 class="footer-title">DECO GROUP</h3>
                     <p class="footer-text">Donner une seconde vie. Créer un avenir.</p>
                     <div class="footer-social">
-                        <a href="https://instagram.com/deco_group" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
+                        <a href="https://www.linkedin.com/psettings/group/16304229" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" fill="white"/>
+                                <rect x="2" y="9" width="4" height="12" fill="white"/>
+                                <circle cx="4" cy="4" r="2" fill="white"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/momel434?igsh=MWN5NWttdDd0dzU5Mg==" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="white"/>
                                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2"/>
                             </svg>
                         </a>
-                        <a href="https://facebook.com/deco_group" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+                        <a href="https://www.tiktok.com/@momel7372?_r=1&_t=ZM-92KS4vxZC" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v4a9 9 0 0 1-9-9z" fill="white"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/share/1B5iQ6tPNj/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="white"/>
                             </svg>
