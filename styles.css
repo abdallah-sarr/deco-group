@@ -9,6 +9,34 @@
   --deco-cream: #FAF8F3;
   --container-width: 1280px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --bg-color: var(--deco-cream);
+  --text-color: var(--deco-charcoal);
+  --heading-color: var(--deco-charcoal);
+  --card-bg: var(--deco-cream);
+  --section-white: #ffffff;
+  --section-cream: var(--deco-cream);
+  --border-color: rgba(44, 44, 44, 0.1);
+  --text-secondary: rgba(44, 44, 44, 0.7);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.95);
+  --mobile-menu-bg: white;
+  --input-bg: white;
+  --input-border: rgba(44, 44, 44, 0.2);
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --heading-color: #f5f5f5;
+  --card-bg: #2d2d2d;
+  --section-white: #1a1a1a;
+  --section-cream: #242424;
+  --deco-charcoal: #e0e0e0;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-secondary: rgba(224, 224, 224, 0.7);
+  --header-bg-scrolled: rgba(26, 26, 26, 0.95);
+  --mobile-menu-bg: #2d2d2d;
+  --input-bg: #2d2d2d;
+  --input-border: rgba(255, 255, 255, 0.2);
 }
 
 * {
@@ -23,8 +51,8 @@ html {
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: var(--deco-cream);
-  color: var(--deco-charcoal);
+  background-color: var(--bg-color);
+  color: var(--text-color);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,11 +111,11 @@ button {
 }
 
 .section-white {
-  background-color: #ffffff;
+  background-color: var(--section-white);
 }
 
 .section-cream {
-  background-color: var(--deco-cream);
+  background-color: var(--section-cream);
 }
 
 .section-header {
@@ -98,7 +126,7 @@ button {
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--deco-charcoal);
+  color: var(--heading-color);
   margin-bottom: 1.5rem;
 }
 
@@ -116,7 +144,7 @@ button {
 
 .section-subtitle {
   font-size: 1.125rem;
-  color: rgba(44, 44, 44, 0.7);
+  color: var(--text-secondary);
   max-width: 42rem;
   margin: 0 auto;
 }
@@ -223,7 +251,7 @@ button {
 }
 
 .header.scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--header-bg-scrolled);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
@@ -303,6 +331,45 @@ button {
   }
 }
 
+.theme-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    background: transparent;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
+.header.scrolled .theme-toggle-btn {
+    color: var(--deco-charcoal);
+    border-color: var(--border-color);
+}
+
+.header.scrolled .theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: var(--deco-charcoal);
+}
+
+[data-theme="dark"] .header.scrolled .theme-toggle-btn {
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .header.scrolled .theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
+
 .header.scrolled .mobile-menu-btn {
   color: var(--deco-charcoal);
 }
@@ -330,7 +397,7 @@ button {
   right: 0;
   width: 20rem;
   height: 100%;
-  background: white;
+  background: var(--mobile-menu-bg);
   box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -578,7 +645,7 @@ button {
 }
 
 .stat-card {
-  background: var(--deco-cream);
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
@@ -608,7 +675,7 @@ button {
 }
 
 .stat-label {
-  color: rgba(44, 44, 44, 0.7);
+  color: var(--text-secondary);
 }
 
 /* ============================================
@@ -667,7 +734,7 @@ button {
 
 .about-text {
   font-size: 1.125rem;
-  color: rgba(44, 44, 44, 0.7);
+  color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
@@ -723,7 +790,7 @@ button {
 }
 
 .process-card {
-  background: var(--deco-cream);
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
@@ -755,7 +822,7 @@ button {
 }
 
 .process-description {
-  color: rgba(44, 44, 44, 0.7);
+  color: var(--text-secondary);
 }
 
 /* ============================================

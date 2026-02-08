@@ -59,6 +59,53 @@ const products = [
 ];
 
 // ============================================
+// THEME TOGGLE
+// ============================================
+function initThemeToggle() {
+  const themeToggle = document.getElementById('themeToggle');
+  const sunIcon = document.querySelector('.theme-icon-sun');
+  const moonIcon = document.querySelector('.theme-icon-moon');
+  
+  // Check for saved theme preference or system preference
+  const savedTheme = localStorage.getItem('theme');
+  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    updateIcons(true);
+  } else {
+    updateIcons(false);
+  }
+  
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        updateIcons(false);
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        updateIcons(true);
+      }
+    });
+  }
+  
+  function updateIcons(isDark) {
+    if (sunIcon && moonIcon) {
+      if (isDark) {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+    }
+  }
+}
+
+// ============================================
 // HEADER SCROLL EFFECT
 // ============================================
 function initHeaderScroll() {
@@ -480,6 +527,7 @@ function setCurrentYear() {
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initHeaderScroll();
   initMobileMenu();
   initHeroCarousel();
