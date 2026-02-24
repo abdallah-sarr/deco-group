@@ -20,7 +20,7 @@
                     <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                     </svg>
-                    <span class="logo-text">DECO GROUP</span>
+                    <span class="logo-text">DECO <span>GROUP</span></span>
                 </a>
                 <div class="nav-desktop">
                     <a href="boutique.html" class="nav-link">Boutique</a>
@@ -61,7 +61,7 @@
             <div class="mobile-menu-overlay"></div>
             <div class="mobile-menu-drawer">
                 <div class="mobile-menu-header">
-                    <span class="logo-text">DECO GROUP</span>
+                    <span class="logo-text">DECO <span>GROUP</span></span>
                     <button class="mobile-menu-close" aria-label="Fermer">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M18 6L6 18M6 6l12 12"/>
@@ -82,30 +82,69 @@
         </div>
     </header>
 
-    <main class="pt-20 pb-20 min-h-screen" style="background-color: var(--bg-color);">
+    <main class="page-header-offset pb-20 min-h-screen" style="background-color: var(--bg-color);">
         <div class="container">
             <div class="text-center mb-16">
                 <h1 class="section-title">À propos de DECO GROUP</h1>
                 <p class="section-subtitle" style="font-size: 1.25rem;">Donner une seconde vie. Créer un avenir.</p>
             </div>
 
-            <div class="about-preview-grid mb-20">
-                <div class="about-preview-image">
-                    <div class="about-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="M. DIONG Mamadou Lamine">
-                        <div class="about-image-overlay">
-                            <h3 class="about-name">M. DIONG Mamadou Lamine</h3>
-                            <p class="about-role">Fondateur & Directeur</p>
+            <section class="founder-section mb-20">
+                <div class="founder-background-text">VISION</div>
+                <div class="founder-grid">
+                    <div class="founder-image-container">
+                        <div class="founder-image-decoration"></div>
+                        <div class="founder-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80" alt="M. DIONG Mamadou Lamine">
+                        </div>
+                        <div class="founder-image-decoration-bottom"></div>
+                    </div>
+                    <div class="founder-content">
+                        <span class="founder-label">Le Fondateur</span>
+                        <h2 class="founder-name">M. DIONG Mamadou Lamine</h2>
+                        <p class="founder-role">Directeur Général & Entrepreneur Social</p>
+                        
+                        <div class="founder-bio">
+                            <div class="founder-tabs">
+                                <button class="founder-tab-btn active" data-tab="vision">La Vision</button>
+                                <button class="founder-tab-btn" data-tab="parcours">Le Parcours</button>
+                                <button class="founder-tab-btn" data-tab="engagement">L'Engagement</button>
+                            </div>
+
+                            <div class="founder-tab-content active" id="vision">
+                                <p class="interactive-paragraph">Entrepreneur visionnaire et passionné par <span class="highlight-keyword">l'artisanat local</span>, M. DIONG Mamadou Lamine a fondé DECO GROUP avec une mission claire : transformer les défis environnementaux en <span class="highlight-keyword">opportunités créatives</span> et sociales.</p>
+                            </div>
+
+                            <div class="founder-tab-content" id="parcours">
+                                <p class="interactive-paragraph">Sous sa direction, DECO GROUP est devenu un acteur majeur de <span class="highlight-keyword">l'économie circulaire</span> au Sénégal, alliant design contemporain et valorisation des matières recyclées. Son approche repose sur trois piliers : la récupération, la création et la transmission.</p>
+                            </div>
+
+                            <div class="founder-tab-content" id="engagement">
+                                <p class="interactive-paragraph">Convaincu que le développement durable passe par <span class="highlight-keyword">l'autonomisation</span> des communautés, il a mis en place des programmes de formation pour créer un écosystème où chaque produit raconte une histoire de <span class="highlight-keyword">résilience</span>.</p>
+                            </div>
+                        </div>
+
+                        <div class="founder-quote">
+                            "Nous ne nous contentons pas de recycler des objets, nous redonnons une âme à la matière et un futur à nos artisans."
+                        </div>
+
+                        <div class="founder-stats">
+                            <div class="founder-stat-item">
+                                <span class="founder-stat-value">5+</span>
+                                <span class="founder-stat-label">Années d'impact</span>
+                            </div>
+                            <div class="founder-stat-item">
+                                <span class="founder-stat-value">50+</span>
+                                <span class="founder-stat-label">Artisans formés</span>
+                            </div>
+                            <div class="founder-stat-item">
+                                <span class="founder-stat-value">100%</span>
+                                <span class="founder-stat-label">Éco-responsable</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="about-preview-content">
-                    <h2 class="section-title" style="font-size: 2rem; text-align: left; margin-bottom: 1.5rem;">M. DIONG Mamadou Lamine</h2>
-                    <p class="about-text">Entrepreneur social et culturel, M. Diong transforme compétences en impact. DECO GROUP récupère, crée, forme.</p>
-                    <p class="about-text">Fondé par M. DIONG Mamadou Lamine, DECO GROUP réinvente l'économie circulaire au Sénégal : créations, emplois et partenariats industriels.</p>
-                    <p class="about-text">Avec une vision claire de l'impact social et environnemental, M. Diong a créé DECO GROUP pour transformer les déchets en opportunités, former les artisans locaux et créer une économie circulaire durable au Sénégal.</p>
-                </div>
-            </div>
+            </section>
 
             <div class="mb-20">
                 <h2 class="section-title" style="font-size: 2rem;">Notre Histoire</h2>

@@ -1165,26 +1165,32 @@ function initTestimonialsCarousel() {
 // ============================================
 function initScrollAnimations() {
   const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '-100px',
+    threshold: 0.15,
+    rootMargin: '0px',
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+        if (entry.target.classList.contains('founder-section')) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
       }
     });
   }, observerOptions);
 
   // Observe elements that should animate on scroll
-  const animateElements = document.querySelectorAll('.stat-card, .process-card, .about-preview-image, .about-preview-content, .b2b-content, .b2b-card, .blog-card');
+  const animateElements = document.querySelectorAll('.stat-card, .process-card, .b2b-content, .b2b-card, .blog-card, .founder-section');
   
   animateElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    if (!el.classList.contains('founder-section')) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    }
     observer.observe(el);
   });
 }
@@ -1357,6 +1363,34 @@ function setCurrentYear() {
 }
 
 // ============================================
+// FOUNDER TABS
+// ============================================
+function initFounderTabs() {
+  const tabBtns = document.querySelectorAll('.founder-tab-btn');
+  const tabContents = document.querySelectorAll('.founder-tab-content');
+
+  if (tabBtns.length === 0) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const tabId = btn.dataset.tab;
+
+      // Update buttons
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Update contents
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+        if (content.id === tabId) {
+          content.classList.add('active');
+        }
+      });
+    });
+  });
+}
+
+// ============================================
 // INITIALIZATION
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -1373,6 +1407,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initWhatsAppButtons();
   initProductDrawer();
+  initFounderTabs();
   setCurrentYear();
 });
 
