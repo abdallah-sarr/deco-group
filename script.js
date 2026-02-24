@@ -1009,31 +1009,21 @@ function initProductsFilter() {
 
     grid.innerHTML = filtered.map((product, index) => `
       <div class="product-card" style="animation-delay: ${index * 0.05}s">
-        <a href="#" onclick="openWhatsAppProduct(event, '${product.name}')">
+        <a href="#" onclick="openProductDrawer(event, '${product.id}')">
           <div class="product-image">
             <img src="${product.image}" alt="${product.name}">
             ${product.tag ? `<span class="product-tag">${product.tag}</span>` : ''}
-            <div class="product-overlay">
-              <button class="product-overlay-btn" aria-label="Acheter sur WhatsApp">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-                </svg>
-              </button>
-            </div>
           </div>
           <div class="product-content">
             <h3 class="product-name">${product.name}</h3>
             <p class="product-materials">${product.materials.join(', ')}</p>
-            ${product.colors ? `<p class="product-colors"><span class="product-meta-label">Couleurs :</span> ${product.colors.join(', ')}</p>` : ''}
-            ${product.sizes ? `<p class="product-sizes"><span class="product-meta-label">Tailles :</span> ${product.sizes.join(' · ')}</p>` : ''}
             <div class="product-footer">
               <span class="product-price">${product.price.toLocaleString()} FCFA</span>
-              <button class="product-add-btn" aria-label="Acheter sur WhatsApp">
+              <div class="product-add-btn" aria-label="Acheter">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                  <path d="M12 5v14M5 12h14"/>
                 </svg>
-                <span style="margin-left:5px; font-size: 0.9em;">Acheter</span>
-              </button>
+              </div>
             </div>
           </div>
         </a>
@@ -1213,6 +1203,72 @@ function openWhatsAppProduct(event, productName) {
   window.open(getWhatsAppLink(message), '_blank');
 }
 
+// Product Drawer Logic
+function openProductDrawer(event, productId) {
+  event.preventDefault();
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+
+  const drawer = document.getElementById('productDrawer');
+  const overlay = document.getElementById('productDrawerOverlay');
+  
+  if (!drawer || !overlay) return;
+
+  // Fill content
+  document.getElementById('drawerImage').src = product.image;
+  document.getElementById('drawerTitle').textContent = product.name;
+  document.getElementById('drawerPrice').textContent = `${product.price.toLocaleString()} FCFA`;
+  document.getElementById('drawerMaterials').textContent = product.materials.join(', ');
+  
+  const colorsWrapper = document.getElementById('drawerColorsWrapper');
+  const colorsContainer = document.getElementById('drawerColors');
+  if (product.colors && product.colors.length) {
+    colorsWrapper.style.display = 'block';
+    colorsContainer.innerHTML = product.colors.map(c => `<span class="drawer-chip">${c}</span>`).join('');
+  } else {
+    colorsWrapper.style.display = 'none';
+  }
+
+  const sizesWrapper = document.getElementById('drawerSizesWrapper');
+  const sizesContainer = document.getElementById('drawerSizes');
+  if (product.sizes && product.sizes.length) {
+    sizesWrapper.style.display = 'block';
+    sizesContainer.innerHTML = product.sizes.map(s => `<span class="drawer-chip">${s}</span>`).join('');
+  } else {
+    sizesWrapper.style.display = 'none';
+  }
+
+  // Set WhatsApp button action
+  const whatsappBtn = document.getElementById('drawerWhatsAppBtn');
+  whatsappBtn.onclick = () => {
+    const message = `Bonjour, je souhaite commander ce produit :\n\n📦 Produit : ${product.name}\n💰 Prix : ${product.price.toLocaleString()} FCFA\n\nPouvez-vous me donner plus d'informations ?`;
+    window.open(getWhatsAppLink(message), '_blank');
+  };
+
+  // Show Drawer
+  document.body.style.overflow = 'hidden';
+  overlay.classList.add('active');
+  drawer.classList.add('active');
+}
+
+function initProductDrawer() {
+  const drawer = document.getElementById('productDrawer');
+  const overlay = document.getElementById('productDrawerOverlay');
+  
+  if (!drawer || !overlay) return;
+
+  const closeBtn = drawer.querySelector('.drawer-close');
+  
+  function closeDrawer() {
+    drawer.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeDrawer);
+  overlay.addEventListener('click', closeDrawer);
+}
+
 function initWhatsAppButtons() {
   // Collect buttons
   const collectButtons = document.querySelectorAll('a[href="contact.html?type=collecte"]');
@@ -1257,6 +1313,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsletterForm();
   initContactForm();
   initWhatsAppButtons();
+  initProductDrawer();
   setCurrentYear();
 });
 
