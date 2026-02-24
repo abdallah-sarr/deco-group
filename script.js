@@ -982,7 +982,7 @@ function animateCounter(element) {
 // PRODUCTS FILTER
 // ============================================
 function initProductsFilter() {
-  const filters = document.querySelectorAll('.category-filter');
+  const filters = document.querySelectorAll('.category-filter, .boutique-category');
   const grid = document.getElementById('productsGrid');
   
   if (!grid || filters.length === 0) return;
@@ -1056,6 +1056,64 @@ function initProductsFilter() {
 
   // Initial render
   renderProducts(activeCategory);
+}
+
+// ============================================
+// HOMEPAGE PRODUCTS
+// ============================================
+function initHomepageProducts() {
+  const container = document.getElementById('homepageProductsContainer');
+  if (!container) return;
+
+  const categories = [
+    { id: 'mode', title: 'Mode', filterPath: 'mode' },
+    { id: 'mobilier', title: 'Mobilier', filterPath: 'mobilier' },
+    { id: 'decor', title: 'Art & Décor', filterPath: 'decor' }
+  ];
+
+  let html = '';
+
+  categories.forEach(cat => {
+    const catProducts = products.filter(p => p.category === cat.id).slice(0, 4);
+    if(catProducts.length === 0) return;
+
+    const cardsHtml = catProducts.map((product, index) => `
+      <div class="product-card" style="animation-delay: ${index * 0.05}s">
+        <a href="#" onclick="openProductDrawer(event, '${product.id}')">
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.name}">
+            ${product.tag ? `<span class="product-tag">${product.tag}</span>` : ''}
+          </div>
+          <div class="product-content">
+            <h3 class="product-name">${product.name}</h3>
+            <p class="product-materials">${product.materials.join(', ')}</p>
+            <div class="product-footer">
+              <span class="product-price">${product.price.toLocaleString()} FCFA</span>
+              <div class="product-add-btn" aria-label="Acheter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    `).join('');
+
+    html += `
+      <div class="homepage-category-section">
+        <div class="homepage-category-header">
+          <h3 class="homepage-category-title">${cat.title}</h3>
+          <a href="boutique.html?category=${cat.filterPath}" class="btn-view-more">Voir plus &rarr;</a>
+        </div>
+        <div class="homepage-products-row">
+          ${cardsHtml}
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
 }
 
 // ============================================
@@ -1308,6 +1366,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroCarousel();
   initCounters();
   initProductsFilter();
+  initHomepageProducts();
   initTestimonialsCarousel();
   initScrollAnimations();
   initNewsletterForm();
