@@ -1,51 +1,51 @@
-# DECO GROUP - Site Vitrine & E-commerce
+# DECO GROUP - Version HTML/CSS/JavaScript
 
-Site web pour Diong Empire Corporation Group (DECO GROUP), structure d'upcycling sénégalaise.
+Ce site a été converti de Next.js/React/TypeScript vers HTML, CSS et JavaScript pur.
 
-## 🚀 Technologies
+## Structure des fichiers
 
-- **Next.js 14** (App Router)
-- **TypeScript**
-- **Tailwind CSS**
-- **Framer Motion** (animations)
-- **React Icons** (Ionicons)
-
-## 📦 Installation
-
-```bash
-npm install
+```
+deco-group/
+├── index.html          # Page d'accueil
+├── a-propos.html       # Page À propos
+├── boutique.html       # Page Boutique
+├── processus.html      # Page Processus
+├── b2b.html           # Page B2B
+├── blog.html          # Page Blog
+├── contact.html       # Page Contact
+├── styles.css         # Tous les styles CSS
+├── scripts.js         # Tous les scripts JavaScript
+├── icons.js           # Définitions des icônes SVG
+├── common.html        # Header et Footer réutilisables (référence)
+└── favicon.ico        # Favicon
 ```
 
-## 🏃 Développement
+## Utilisation
 
-```bash
-npm run dev
-```
+Ouvrez simplement `index.html` dans votre navigateur pour voir le site. Toutes les pages sont statiques et peuvent être hébergées sur n'importe quel serveur web.
 
-Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
+## Fonctionnalités
 
-## 📁 Structure
+- ✅ Carousel Hero avec 3 slides
+- ✅ Navigation responsive avec menu mobile
+- ✅ Compteurs animés (statistiques)
+- ✅ Filtrage des produits par catégorie
+- ✅ Carousel de témoignages
+- ✅ Formulaires de contact interactifs
+- ✅ Design responsive (mobile, tablette, desktop)
+- ✅ Animations au scroll
+- ✅ Smooth scrolling
 
-- `/app` - Pages et routes Next.js
-- `/components` - Composants réutilisables
-- `/lib` - Utilitaires et helpers
-- `/public` - Assets statiques
-- `/styles` - Styles globaux
+## Navigateurs supportés
 
-## 🎨 Design System
+- Chrome/Edge (dernières versions)
+- Firefox (dernières versions)
+- Safari (dernières versions)
 
-- **Couleurs**: Or chaud, Terracotta, Vert olive, Gris charbon
-- **Typographie**: Poppins/Inter (titres), Roboto (corps)
-- **Icônes**: Ionicons outlined
+## Notes
 
-## 📝 Fonctionnalités
+- Les images utilisent des URLs Unsplash pour la démo. Remplacez-les par vos propres images en production.
+- Les formulaires simulent l'envoi. Intégrez un backend pour les fonctionnalités réelles.
+- Les liens vers les réseaux sociaux sont des placeholders.
 
-- ✅ Header translucide avec navigation
-- ✅ Hero carousel 3 slides
-- ✅ Sections homepage (Mission, À propos, Processus, Produits)
-- ✅ E-commerce (boutique, panier, checkout)
-- ✅ Pages dédiées (B2B, Blog, Contact)
-- ✅ Animations Framer Motion
-- ✅ SEO optimisé
-- ✅ Responsive design
 
