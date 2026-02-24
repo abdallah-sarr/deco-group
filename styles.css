@@ -978,13 +978,26 @@ button {
 .product-materials {
   font-size: 0.875rem;
   color: rgba(44, 44, 44, 0.6);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.product-colors,
+.product-sizes {
+  font-size: 0.78rem;
+  color: rgba(44, 44, 44, 0.55);
+  margin-bottom: 0.3rem;
+}
+
+.product-meta-label {
+  font-weight: 600;
+  color: rgba(44, 44, 44, 0.7);
 }
 
 .product-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 0.75rem;
 }
 
 .product-price {
